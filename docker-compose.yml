@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    container_name: partner_sync_app
+    volumes:
+      - .:/app
+    ports:
+      - "4000:4000"
+    environment:
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_HOST: db
+      DB_NAME: partner_sync_dev
+    depends_on:
+      - db
+    command:
+      - ./run.sh
+
+  db:
+    image: postgres
+    container_name: partner_sync_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    restart: always
+    volumes:
+      - ./docker-volumes/postgres-data:/var/lib/postgresql/data
