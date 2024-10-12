@@ -2,16 +2,18 @@
 
 The **Partner Sync** project aims to streamline the updating of internal partner data. By allowing bulk updates through CSV file uploads, we can reduce the time and effort spent on manual data entry, enhancing overall efficiency.
 
-- [Technologies](#technologies)
+## Table of Contents
+
+- [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
   - [Running with Docker](#running-with-docker)
   - [Running locally with ASDF](#running-locally-with-asdf)
 - [API Endpoints](#api-endpoints)
-- [Libraries](#libraries)
+- [Libraries Used](#libraries-used)
 - [Code Quality](#code-quality)
 - [Tests and Coverage Report](#tests-and-coverage-report)
 
-## Technologies
+## Technologies Used
 
 * Elixir 1.14.2
 * Phoenix 1.6.15
@@ -23,6 +25,9 @@ The **Partner Sync** project aims to streamline the updating of internal partner
 There are two ways to run the application: using [Docker](https://www.docker.com/) or running it locally with [ASDF](https://asdf-vm.com/).
 
 ### Running with Docker
+
+<details>
+<summary>See details</summary>
 
 **1-** Download and install Docker: https://docs.docker.com/get-docker/
 
@@ -62,7 +67,12 @@ $ docker-compose up --build
 
 **5-** That's it! The application is now accessible at the following URL: http://localhost:4000/
 
+</details>
+
 ### Running locally with ASDF
+
+<details>
+<summary>See details</summary>
 
 **1-** Download and install ASDF: https://asdf-vm.com/guide/getting-started.html
 
@@ -142,6 +152,8 @@ $ iex -S mix phx.server # Starts the Phoenix Endpoint with debugging
 
 **10-** That's it! The application is now accessible at the following URL: http://localhost:4000/
 
+</details>
+
 ## API Endpoints
 
 Method | Endpoint | Description | Parameters / Body
@@ -150,7 +162,7 @@ GET | /api/v1/addresses | Lists all addresses |
 GET | /api/v1/addresses/:cep | Shows an address by ZIP Code |
 GET | /api/v1/partners | Lists all partners |
 GET | /api/v1/partners/:cnpj | Shows a partner by CNPJ |
-POST | /api/v1/partners | Imports a CSV file ([Ver template](https://github.com/aadmaquino/partner_sync/blob/main/template.csv)) and inserts/updates each valid record | `csv (file)`
+POST | /api/v1/partners | Imports a CSV file ([See template](https://github.com/aadmaquino/partner_sync/blob/main/template.csv)) and inserts/updates each valid record | `csv (file)`
 GET | /dev/mailbox | Provides access to the default email interface for viewing emails sent during development |
 
 > [!NOTE]
@@ -158,7 +170,7 @@ GET | /dev/mailbox | Provides access to the default email interface for viewing 
 >
 > ![image](https://user-images.githubusercontent.com/20209857/204148564-3eac1208-23f8-4bfc-be42-526c95113a22.png)
 
-## Libraries
+## Libraries Used
 
 * [Credo](https://github.com/rrrene/credo): A static code analysis tool that ensures code follows best practices and recommended standards.
 * [Excoveralls](https://github.com/parroty/excoveralls): Generates detailed test coverage reports, with easy integration into CI tools.
